@@ -5,9 +5,9 @@ from django.http import HttpResponse
 
 
 def home(request):
-    context = {
-        'title': 'Home',
-        'heading': 'Welcome to my website',
-        'content': 'This is the content of my website'
-    }
-    return render(request,"index.html", context)
+    return render(request,"index.html")
+
+def counter(request):
+    textS = request.POST['name'] 
+    number_of_words = len(textS.split())
+    return render(request,"counter.html", { 'number_of_words':number_of_words})
